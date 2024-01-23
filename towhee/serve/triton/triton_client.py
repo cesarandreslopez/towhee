@@ -47,7 +47,7 @@ class TritonClient:
         for name, array in kwargs.items():
             inputs.append(self._torch_tensor_to_pbtenor(name, array))
 
-        inference_request = pb_utils.InferenceRequest(model_name=self._model_name, requested_output_names=self._output_names, inputs=inputs, preferred_memory = pb_utils.PrefferedMemory(pb_utils.TRITONSERVER_MEMORY_CPU,0))
+        inference_request = pb_utils.InferenceRequest(model_name=self._model_name, requested_output_names=self._output_names, inputs=inputs, preferred_memory = pb_utils.PreferredMemory(pb_utils.TRITONSERVER_MEMORY_CPU,0))
 
         inference_response = inference_request.exec()
 
